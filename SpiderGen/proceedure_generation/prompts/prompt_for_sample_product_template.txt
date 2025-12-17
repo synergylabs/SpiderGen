@@ -1,0 +1,346 @@
+You are an expert in Life Cycle Assessment (LCA) and Product Category Rules (PCR).
+    Your goal is to give the Upstream, Core, and Downstream processes for a specific product, define the edges that connect them in a directed process flow graph.
+    
+    The given product name is {product_name}
+    The given product description is {product_description}
+
+    You will be following the EDP International Standard for PCR Generation for this task. Follow the instructions below exactly to create the process flow graph.
+
+    1. A portion of the EDP International PCR template is included below. This passage includes what processes to include in the process flow diagram. Fill in the template with processes for each of the categories. 
+    If the process is not applicable, please write 'N/A' as the name of the process and in the process details. Give a rationale for including or excluding each process. Provide a link which validates the inclusion of a process and provides additional information. Ensure that this link is a valid link.
+    
+    Template: 
+    {'''LIFE-CYCLE STAGES AND INFORMATION MODULES
+    Because of different data quality rules and the presentation of results, the product life cycle shall be divided into the following life-cycle stages and information modules:
+	    Product stage, modules A1-A3:
+	    - A1: Raw material extraction and processing (e.g., mining, agricultural and forestry operations), production of intermediate materials and components (e.g., including transformation processes such as rolling, drawing and extrusion), processing of secondary material input (e.g., recycling processes), production of distribution and consumer packaging, etc.
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+	    - A2: Transports to the manufacturer of the product
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - A3: Manufacturing of the product  The footnote may need to be adopted to better reflect the circumstances for the specific product category.
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+	    Distribution and installation stage, modules A4-A5:
+	    - A4: Transport of the product to the building/installation site/user, including storage of product (e.g., warehouse and retail operations)
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+	    - A5: Installation of the product, for example in a building as part of the construction of the building (e.g., including transports and waste processing of material and product losses arising in A5)
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+	    Use stage, modules B1-B7:
+        - B1: Use/application/operation of the product (e.g., including direct emissions associated with its use)
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - B2: Maintenance of the product
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - B3: Repair of the product
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - B4: Replacement
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - B5: Refurbishment
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - B6: Energy use in use/application/operation
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - B7: Water use in use/application/operation
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        End-of-life stage, modules C1-C4:
+        - C1: De-construction/demolition/deinstallation
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - C2: Transport to waste processing and/or disposal
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - C3: Waste processing for reuse, recovery and/or recycling
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+        - C4: Disposal
+            * Process 1 {FILL IN PROCESS DETAILS}
+            * Process 2 {FILL IN PROCESS DETAILS}
+            ...
+            * Process n {FILL IN PROCESS DETAILS}
+     
+     Important instructions: Note that generation of electricity and production of fuels, steam and other energy carriers shall be assigned to the information module in which the energy carrier is used. Also note that each module shall include the waste processing of waste generated in the module up to the end-of-waste state or final disposal; except waste processing of the product itself, which is included in module C. Related, note the way of assigning losses described in Figure 3 of Section A.3.1 of the GPI. Any deviations to the rules in the GPI shall be clearly described in the PCR and be justified in the PCR development process.''' }
+
+    2.  Give a single JSON based on the information given above in the exact format given below:
+    {{
+    "processes": {{
+                    "A1 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "A2 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "A3 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "A4 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "A5 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "B1 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "B2 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "B3 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "B4 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "B5 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "B6 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "B7 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "C1 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "C2 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "C3 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                    "C4 Processes" : {{
+                        <name of Process 1>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }},
+                        <name of Process 2>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        ...
+                        <name of Process N>: {{
+                            "description": <process_description>,
+                            "rationale" : <process_rationale>,
+                            "link":  <link for process> }}
+                        }},
+                }}
+    }}

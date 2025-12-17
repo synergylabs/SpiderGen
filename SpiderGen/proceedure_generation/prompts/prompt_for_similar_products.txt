@@ -1,0 +1,37 @@
+You are an expert in Life Cycle Assessment (LCA) and Product Category Rules (PCR).
+You are generating a PCR for {pcr_name} which describes products from a set of UN CPC codes. To do this, you are going to look at items that are representive of the UN CPC codes.
+The UN CPC code descriptions are {un_cpc_code_description}.
+
+Given these descriptions, list {num_products} real products that are a part of these categories. 
+Follow the following guidelines for listing these products
+1. Ensure that the products that you list cover a wide range of products from within the described codes. Include products within these UN CPC code descriptions that include a diverse set of materials, and processes
+2. For each product, create a detailed description using the following as a guideline:  
+Provide a detailed breakdown of the product’s composition, ingredients, materials, or components, depending on the category. 
+Explain the function of each element and how they contribute to the product's performance, safety, or sustainability. 
+Include information on sourcing, processing, and any relevant quality standards or certifications. 
+If applicable, discuss variations of the product (e.g., different formulas, material choices, or feature sets) and how the content differs between them. 
+Highlight any unique or innovative aspects of the product’s composition that set it apart from competitors. 
+Ensure the description is based on the actual product. Rretrieve the real details of the given product.
+3. Provide a URL to the product.
+4. Return the product and the product details in the following JSON format.
+
+Give a single JSON based on the information given above in the exact format given below:
+
+{{
+"product": {{
+                <product_name> : {{
+                    "description": <product_description>,
+                    "url": <url to the product>
+        
+                }},
+                    <product_name_2> : {{
+                    "description": <product_description>,
+                    "url": <url to the product>
+                }},
+                ...
+            }}
+}}
+Important Instructions:
+1. Ensure that the JSON format given is followed exactly. Do not follow any other JSON format
+2. Be sure that each product and product description is as detailed as possible
+3. Provide details of all assumptions made and rationale behind each determination.

@@ -1,0 +1,51 @@
+You are an expert in Life Cycle Assessment (LCA) and Product Category Rules (PCR). 
+    You are creating a process flow graph of the upstream, core and downstream processes of the product categories {UNCPC_descriptions}.
+    The clusters of processes that should be included in the graph are : {cluster_summary}
+
+    First, create process names for each of the clusters:
+    1.  Provide a name for each cluster that describes the processes. Ensure that the name accurately reflects the processes that are listed in the cluster. 
+    The cluster name should be as broad as possible, and should describe each of the processes in the cluster. Do not exclude processes in the description.
+
+    The following steps will utilize the cluster names generated above.
+
+    Based on the cluster names above, carefully follow the instructions below to create the directed process flow graph:
+    1. Each cluster name should be applicable to any product within the product categories {UNCPC_descriptions}. If there is a cluster that refers to a more specific product, exclude it at note it in the "exlucded processes" section
+    2. If relevant, there should be a cluster 
+    2. Order each of the cluster names by the sequence in which they are done and create edges between each of these cluster names. 
+    3. If one of the cluster names described above is a subprocess of another cluster name, indicate this by creating an edge from the subprocess to the cluster name (ex. subprocess --> cluster name). Indicate that it is a subprocess.
+
+    Only include the processes in the list given. Do not include any other processes 
+
+    4. Give a single JSON based on the information given above in the exact format given below:
+
+    {{
+    "exlcluded_processes": [<excluded_cluster_name_1, excluded_cluster_name_2 ...]
+    "processes": {{
+            <cluster_name> : {{
+                "description": <cluster_name_description>,
+                "process_category": <list either upstream, core or downstream>,
+                "is_subprocess": <list either subprocess or process>,
+                "input_nodes": [ input_node_1, input_node_2 ...
+                ], 
+                "output_nodes": [output_node_1, output_node_2 ...], 
+                “reasoning:  < provide a detailed description of the rationale of the reason why the process is upstream, core or downstream>
+    
+            }},
+                <cluster_name_2> : {{
+                "description": <cluster_name_description>,
+                "process_category": <list either upstream, core or downstream>,
+                "is_subprocess": <list either subprocess or process>,
+                "input_nodes": [ input_1, input_node_2 ...
+                ], 
+                "output_nodes": [output_node_1, output_node_2 ...], 
+                “reasoning:  < provide a detailed description of the rationale of the reason why the process is upstream, core or downstream>
+    
+            }},
+                    ...
+        }}
+    }}
+    Important Instructions:
+    1. Ensure that the JSON format given is followed exactly. Do not follow any other JSON format
+    2. Ensure your response includes a clear and concise breakdown of each process, using the information provided in the input JSON. 
+    3. Be sure that each process is as detailed as possible
+    5. Provide details of all assumptions made and rationale behind each determination.
