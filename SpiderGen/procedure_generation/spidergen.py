@@ -1,5 +1,5 @@
 import os
-from proceedure_generation.spidergen_utils import get_clusters_summary
+from procedure_generation.spidergen_utils import get_clusters_summary
 import json
 def spidergen(product_category_name, product_category_description, number_sample_products, model_manager, trace=True):
     """
@@ -13,13 +13,13 @@ def spidergen(product_category_name, product_category_description, number_sample
         trace (bool): Whether to enable tracing for LCA transparency. """
     
     # Load prompts
-    with open('proceedure_generation/prompts/prompt_for_similar_products.txt', 'r') as f:
+    with open('procedure_generation/prompts/prompt_for_similar_products.txt', 'r') as f:
         prompt_similar_products_template = f.read().format(product_category_name, product_category_description, number_sample_products)
     
-    with open('proceedure_generation/prompts/prompt_for_sample_product_template.txt', 'r') as f:
+    with open('procedure_generation/prompts/prompt_for_sample_product_template.txt', 'r') as f:
         prompt_sample_product_template = f.read()
     
-    with open('proceedure_generation/prompts/prompt_for_generating_pfg.txt', 'r') as f:
+    with open('procedure_generation/prompts/prompt_for_generating_pfg.txt', 'r') as f:
         prompt_generating_clusters_template = f.read()
 
     # If trace is enabled, each step of the generation process will be recorded in a folder
