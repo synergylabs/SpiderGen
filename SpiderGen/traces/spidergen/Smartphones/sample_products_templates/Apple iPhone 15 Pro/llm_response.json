@@ -1,0 +1,131 @@
+{
+    "processes": {
+        "A1 Processes": {
+            "Mining and Refinement of Titanium": {
+                "description": "Extracting and refining titanium for the iPhone 15 Pro's frame.",
+                "rationale": "Titanium use is highlighted in the product description for its frame, necessitating mining and refinement.",
+                "link": "https://www.twi-global.com/technical-knowledge/faqs/faq-what-is-titanium-and-how-is-it-manufactured"
+            },
+            "Glass Manufacture for Screen and Back": {
+                "description": "Production of high-quality glass for the iPhone's front and back surfaces.",
+                "rationale": "iPhone uses glass for both front and back, requiring specific manufacturing processes.",
+                "link": "https://www.americanceramicsociety.org/wp-content/uploads/2019/05/Glass_Manufacturing_White_Paper_2019_WEB.pdf"
+            },
+            "Semiconductor Manufacturing": {
+                "description": "Construction of the A17 Bionic chip using advanced semiconductor processes.",
+                "rationale": "The A17 Bionic chip is central to the iPhone's performance, emphasizing the importance of this process.",
+                "link": "https://www.cnbc.com/2020/10/07/how-semiconductors-are-made.html"
+            },
+            "Recycling Process for Aluminum and Other Materials": {
+                "description": "Recovery and processing of secondary aluminum and other recycled materials.",
+                "rationale": "Apple emphasizes sustainability and use of recycled materials.",
+                "link": "https://www.aluminium.org.au/using-recycling/"
+            }
+        },
+        "A2 Processes": {
+            "Transportation of Materials to Apple's Assembly Plants": {
+                "description": "Shipping raw and intermediate materials to Apple's manufacturing locations.",
+                "rationale": "Transportation is crucial for moving all required materials to the manufacturing sites.",
+                "link": "https://www.supplychaindive.com/news/consumer-electronics-logistics-snapshot/571852/"
+            }
+        },
+        "A3 Processes": {
+            "Assembly of the iPhone 15 Pro": {
+                "description": "Final assembly of the iPhone components into the finished product.",
+                "rationale": "The culmination of materials and components into the iPhone 15 Pro.",
+                "link": "https://insights.dice.com/2018/03/22/where-are-iphones-really-made/"
+            }
+        },
+        "A4 Processes": {
+            "Distribution through Apple's Logistics Network": {
+                "description": "Shipping finished products to regional distribution centers.",
+                "rationale": "Necessary to ensure products reach end-users in a timely fashion.",
+                "link": "https://www.strategicsourceror.com/blog/apple-a-logistics-powerhouse"
+            }
+        },
+        "A5 Processes": {
+            "Initial Setup and Configuration by the User": {
+                "description": "User-powered setup and configuration upon first use.",
+                "rationale": "Necessary to make the device operational.",
+                "link": "https://support.apple.com/en-us/HT201274"
+            }
+        },
+        "B1 Processes": {
+            "Operational Use of iPhone 15 Pro": {
+                "description": "Regular use or operation of the device by end-users.",
+                "rationale": "Direct use impacts, like energy consumption during operation.",
+                "link": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7386598/"
+            }
+        },
+        "B2 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "iPhones generally require minimal maintenance and have no significant water usage in operation.",
+                "link": "N/A"
+            }
+        },
+        "B3 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "iPhones generally require minimal maintenance and have no significant water usage in operation.",
+                "link": "N/A"
+            }
+        },
+        "B4 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "iPhones generally require minimal maintenance and have no significant water usage in operation.",
+                "link": "N/A"
+            }
+        },
+        "B5 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "iPhones generally require minimal maintenance and have no significant water usage in operation.",
+                "link": "N/A"
+            }
+        },
+        "B6 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "iPhones generally require minimal maintenance and have no significant water usage in operation.",
+                "link": "N/A"
+            }
+        },
+        "B7 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "iPhones generally require minimal maintenance and have no significant water usage in operation.",
+                "link": "N/A"
+            }
+        },
+        "C1 Processes": {
+            "Deinstallation by User": {
+                "description": "Removal of the device from use, often by the user.",
+                "rationale": "Necessary first step for entering the disposal or recycling process.",
+                "link": "https://recyclecoach.com/resources/responsible-electronics-recycling-ultimate-guide-consumers/"
+            }
+        },
+        "C2 Processes": {
+            "Collection for Recycling or Disposal": {
+                "description": "Gathering of the devices for processing.",
+                "rationale": "Ensures devices reach proper processing facilities.",
+                "link": "https://www.epa.gov/international-cooperation/e-waste-management"
+            }
+        },
+        "C3 Processes": {
+            "Recycling of iPhone Components": {
+                "description": "Processing iPhones to reclaim materials like metals and glass.",
+                "rationale": "Supports sustainability and material recovery.",
+                "link": "https://www.recyclenow.com/what-to-do-with/electronics"
+            }
+        },
+        "C4 Processes": {
+            "Disposal of Non-Recyclable Parts": {
+                "description": "Safe disposal of components that cannot be recycled.",
+                "rationale": "Necessary to complete the product's lifecycle responsibly.",
+                "link": "https://www.earth911.com/technology/electronic-hardware-disposal/"
+            }
+        }
+    }
+}

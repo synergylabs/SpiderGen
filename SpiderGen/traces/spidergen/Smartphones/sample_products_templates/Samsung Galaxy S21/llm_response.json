@@ -1,0 +1,121 @@
+{
+    "processes": {
+        "A1 Processes": {
+            "Raw Material Extraction": {
+                "description": "Extraction of raw materials such as lithium for batteries, silicon for semiconductors, and metals for phone casing.",
+                "rationale": "The extraction of raw materials is a crucial part of device material composition and contributes significantly to environmental impacts.",
+                "link": "https://sustainableproductionforum.com/samsung-phones-raw-materials/"
+            },
+            "Intermediate Material Production": {
+                "description": "Production of components like processors, memory chips, and display panels.",
+                "rationale": "These components are integral parts of the Galaxy S21 and require significant energy and resources in their production.",
+                "link": "https://www.samsung.com/global/galaxy/galaxy-s21/"
+            }
+        },
+        "A2 Processes": {
+            "Transport to Manufacturer": {
+                "description": "Transporting raw materials and components to Samsung's manufacturing facilities.",
+                "rationale": "Transport contributes to carbon emissions and is a key part of the supply chain.",
+                "link": "https://sustainabletransport.org/samsung-supply-chain-logistics/"
+            }
+        },
+        "A3 Processes": {
+            "Assembly and Production": {
+                "description": "The assembly of the Samsung Galaxy S21 in factories, including quality control and packaging.",
+                "rationale": "Assembly is resource-intensive and critically influences the environmental profile of the product.",
+                "link": "https://news.samsung.com/global/a-review-of-the-galaxy-s21-features"
+            }
+        },
+        "A4 Processes": {
+            "Distribution": {
+                "description": "Distribution and shipping of the product to various global markets.",
+                "rationale": "Distribution is a significant source of GHG emissions.",
+                "link": "https://www.samsung.com/global/galaxy/ecosystem/"
+            }
+        },
+        "A5 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "The installation phase does not apply as the product is a consumer electronic device and does not require professional installation.",
+                "link": "N/A"
+            }
+        },
+        "B1 Processes": {
+            "Usage": {
+                "description": "The consumer use phase, including mobile network connectivity and screen usage.",
+                "rationale": "Consumer usage is critical for understanding energy consumption during the lifetime of the product.",
+                "link": "https://www.samsung.com/us/support/owners/product/galaxy-s21-5g"
+            }
+        },
+        "B2 Processes": {
+            "Software Updates": {
+                "description": "Regular software updates improve functionality but consume resources during their development and deployment.",
+                "rationale": "Maintaining software is necessary for security and performance, impacting energy use.",
+                "link": "https://news.samsung.com/global/galaxy-s21-software-updates"
+            }
+        },
+        "B3 Processes": {
+            "Repairs": {
+                "description": "Repair processes including screen replacement and battery changes.",
+                "rationale": "Repairs extend the product lifespan and can reduce the environmental impacts compared to full replacement.",
+                "link": "https://samsungrepair.com/"
+            }
+        },
+        "B4 Processes": {
+            "Replacement with New Models": {
+                "description": "Lifecycle impacts of consumers replacing their devices with newer models.",
+                "rationale": "Replacement affects lifecycle impact assessments as older models may be discarded or recycled.",
+                "link": "https://news.samsung.com/global/upgrading-to-galaxy-s21"
+            }
+        },
+        "B5 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Refurbishment is typically not performed by end-users for this type of product.",
+                "link": "N/A"
+            }
+        },
+        "B6 Processes": {
+            "Electricity Usage": {
+                "description": "Electricity consumed during usage, for charging and network communication.",
+                "rationale": "Significant energy consumption occurs during device charging over its lifespan.",
+                "link": "https://www.samsung.com/global/galaxy/sustainability/"
+            }
+        },
+        "B7 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Water is not typically used during the operation or use phase of this electronic device.",
+                "link": "N/A"
+            }
+        },
+        "C1 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Deinstallation is not applicable to consumer electronics like mobile phones, which are not installed in a typical sense.",
+                "link": "N/A"
+            }
+        },
+        "C2 Processes": {
+            "Transport to Recycling Facility": {
+                "description": "Transport of obsolete devices to recycling facilities.",
+                "rationale": "This stage is essential for managing electronic waste responsibly.",
+                "link": "https://www.samsung.com/global/recycling/"
+            }
+        },
+        "C3 Processes": {
+            "Recycling Processes": {
+                "description": "Breaking down the phones into components and recycling valuable materials.",
+                "rationale": "Ensures materials are reclaimed and reduces the need for virgin materials.",
+                "link": "https://www.samsung.com/global/corporate/sustainability/environment/"
+            }
+        },
+        "C4 Processes": {
+            "E-waste Disposal": {
+                "description": "Disposal of non-recyclable materials in appropriate waste facilities.",
+                "rationale": "Proper disposal reduces environmental harm and is the final lifecycle stage.",
+                "link": "https://www.samsung.com/global/recycling/"
+            }
+        }
+    }
+}

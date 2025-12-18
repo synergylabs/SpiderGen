@@ -1,0 +1,131 @@
+{
+    "processes": {
+        "A1 Processes": {
+            "Raw Material Extraction": {
+                "description": "Extraction of conflict-free minerals and fair-trade certified materials.",
+                "rationale": "Essential for sustainable sourcing of materials used in Fairphone 4.",
+                "link": "https://www.fairphone.com/en/story/minerals/"
+            },
+            "Component Production": {
+                "description": "Production of phone components, including modular parts like the battery and camera.",
+                "rationale": "Key to maintaining Fairphone's modular and sustainable design.",
+                "link": "https://www.fairphone.com/en/story/design/"
+            },
+            "Recycling Processes": {
+                "description": "Processing of recycled plastic for the phone body.",
+                "rationale": "Promotes sustainability through the use of recycled materials.",
+                "link": "https://www.fairphone.com/en/story/materials/"
+            }
+        },
+        "A2 Processes": {
+            "Transport to Manufacturer": {
+                "description": "Transport of raw materials to manufacturing facilities.",
+                "rationale": "Necessary step to begin the manufacturing process.",
+                "link": "https://www.fairphone.com/en/story/factory/"
+            }
+        },
+        "A3 Processes": {
+            "Product Assembly": {
+                "description": "Assembly of Fairphone 4 at manufacturing facilities.",
+                "rationale": "Crucial process for creating the final product.",
+                "link": "https://www.fairphone.com/en/story/factory/"
+            },
+            "Quality Control": {
+                "description": "Quality checks to ensure each phone meets standards.",
+                "rationale": "Ensures the reliability and longevity of the product.",
+                "link": "https://www.fairphone.com/en/story/production/"
+            }
+        },
+        "A4 Processes": {
+            "Transport to Retailers": {
+                "description": "Distribution of finished products to retailers and customers.",
+                "rationale": "Essential for market availability.",
+                "link": "https://www.fairphone.com/en/store/"
+            }
+        },
+        "A5 Processes": {
+            "User Setup": {
+                "description": "Setup of phone by the end-user, including battery, SIM, and initial configuration.",
+                "rationale": "User-specific process for initial use.",
+                "link": "https://support.fairphone.com/hc/en-us/articles/360048178032"
+            }
+        },
+        "B1 Processes": {
+            "Daily Use": {
+                "description": "Daily operations and usage of the Fairphone 4.",
+                "rationale": "Main operational stage of product lifecycle.",
+                "link": "https://www.fairphone.com/en/story/lifecycle/"
+            }
+        },
+        "B2 Processes": {
+            "Software Updates": {
+                "description": "Regular Android and security updates.",
+                "rationale": "Integral to maintaining phone security and functionality.",
+                "link": "https://www.fairphone.com/en/android/"
+            }
+        },
+        "B3 Processes": {
+            "Component Repair": {
+                "description": "Repair of components by the user, thanks to modular design.",
+                "rationale": "Supports longevity and reduces electronic waste.",
+                "link": "https://www.ifixit.com/Device/Fairphone_4"
+            }
+        },
+        "B4 Processes": {
+            "Battery Replacement": {
+                "description": "User replacement of battery over the phone's life.",
+                "rationale": "Ensures the phone's extended operational capacity.",
+                "link": "https://support.fairphone.com/hc/en-us/articles/360048178672"
+            }
+        },
+        "B5 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Refurbishment is not applicable due to phone's longevity and repair capabilities.",
+                "link": "N/A"
+            }
+        },
+        "B6 Processes": {
+            "Energy Consumption": {
+                "description": "Electricity usage during phone operation.",
+                "rationale": "Energy use is a critical component of the environmental impact.",
+                "link": "https://www.fairphone.com/en/lca/"
+            }
+        },
+        "B7 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Water use in operation is negligible.",
+                "link": "N/A"
+            }
+        },
+        "C1 Processes": {
+            "Deinstallation": {
+                "description": "Removal of user-installed components before disposal.",
+                "rationale": "Prepares for appropriate recycling or disposal.",
+                "link": "https://www.fairphone.com/en/recycle/"
+            }
+        },
+        "C2 Processes": {
+            "Transport to Recycling Center": {
+                "description": "Transporting old units for recycling.",
+                "rationale": "Ensures responsible end-of-life processing.",
+                "link": "https://www.fairphone.com/en/recycling-program/"
+            }
+        },
+        "C3 Processes": {
+            "Component Recycling": {
+                "description": "Recycling of phone components to recover materials.",
+                "rationale": "Critical for closing the loop on materials.",
+                "link": "https://www.fairphone.com/en/recycling-program/"
+            }
+        },
+        "C4 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Complete disposal is minimized by recycling efforts.",
+                "link": "N/A"
+            }
+        }
+    }
+}

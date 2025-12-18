@@ -125,8 +125,10 @@ def get_clusters_summary(product_templates, transformer_model):
     all_C2 = []
     all_C3 = []
     all_C4 = []
-    for item in product_templates['product']:
-        curr_product = product_templates['product'][item]
+    for item in product_templates:
+        print('processing item:', item)
+        print(product_templates)
+        curr_product = product_templates[item]
         print(item)
         if curr_product == "null":
             print('skipping nulled product')

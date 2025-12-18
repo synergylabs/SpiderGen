@@ -1,0 +1,136 @@
+{
+    "processes": {
+        "A1 Processes": {
+            "Raw Material Extraction": {
+                "description": "Extraction of raw materials such as aluminum and glass used in the construction of the Google Pixel 8 Pro.",
+                "rationale": "Essential for the manufacturing of the phone's components; involves mining operations and raw material processing.",
+                "link": "https://www.aluminiumleader.com/production/extraction/"
+            },
+            "Production of Intermediate Materials": {
+                "description": "Manufacturing of components such as the Tensor G3 processor and OLED screen.",
+                "rationale": "Intermediate component production is key to assembling the final product.",
+                "link": "https://www.semiconductors.org"
+            },
+            "Recycled Material Processing": {
+                "description": "Processing and incorporating recycled materials into the phone's design.",
+                "rationale": "Aligns with Google\u2019s sustainability practices by reducing raw material usage.",
+                "link": "https://sustainability.google/projects/"
+            }
+        },
+        "A2 Processes": {
+            "Transport of Raw Materials": {
+                "description": "Logistics for transporting raw materials to the manufacturing facility.",
+                "rationale": "Critical for supplying manufacturing plants with necessary materials.",
+                "link": "https://transportgeography.org"
+            }
+        },
+        "A3 Processes": {
+            "Manufacturing and Assembly": {
+                "description": "Processes involved in assembling the Google Pixel 8 Pro, including component integration.",
+                "rationale": "Core stage where all components are assembled into the final product.",
+                "link": "https://biographychimp.com/"
+            },
+            "Quality Control": {
+                "description": "Inspection processes to ensure the final quality of the Google Pixel 8 Pro.",
+                "rationale": "Vital for maintaining product quality and ensuring customer satisfaction.",
+                "link": "https://asq.org"
+            }
+        },
+        "A4 Processes": {
+            "Distribution Logistics": {
+                "description": "Transportation of the finished product to distributors and retailers.",
+                "rationale": "Essential to bring the product to market and reach consumers.",
+                "link": "https://logistics.geodis.com"
+            },
+            "Storage": {
+                "description": "Storage of devices in warehouses before they reach retailers.",
+                "rationale": "A necessary stage in ensuring product availability and supply chain management.",
+                "link": "https://www.supplychaindive.com"
+            }
+        },
+        "A5 Processes": {
+            "Retail Setup": {
+                "description": "Store and display setup processes to prepare for product sales.",
+                "rationale": "Ensures that the product is effectively displayed for consumer purchasing.",
+                "link": "https://www.retailminded.com"
+            }
+        },
+        "B1 Processes": {
+            "Device Operation": {
+                "description": "Use of the Google Pixel 8 Pro by consumers, including software and applications.",
+                "rationale": "Primary function of the product, involving consumer interaction with its features.",
+                "link": "https://support.google.com/pixelphone"
+            }
+        },
+        "B2 Processes": {
+            "Software Updates": {
+                "description": "Regular updates provided to the device to ensure functionality and security.",
+                "rationale": "Important for maintaining device performance and security over its lifecycle.",
+                "link": "https://support.google.com/android"
+            }
+        },
+        "B3 Processes": {
+            "Device Repair": {
+                "description": "Procedures for repairing damaged components of the Google Pixel 8 Pro.",
+                "rationale": "Necessary to extend the lifespan of the product and provide ongoing functionality.",
+                "link": "https://store.google.com/repair"
+            }
+        },
+        "B4 Processes": {
+            "Component Replacement": {
+                "description": "Replacing components such as batteries or screens if they fail.",
+                "rationale": "Critical to ensure device longevity and customer satisfaction.",
+                "link": "https://support.google.com/pixelrepair"
+            }
+        },
+        "B5 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Refurbishment is not a standard practice outlined explicitly for Pixel devices as part of their regular usage phase.",
+                "link": "https://support.google.com/store"
+            }
+        },
+        "B6 Processes": {
+            "Energy Consumption": {
+                "description": "Electricity used by the Google Pixel 8 Pro during typical operation.",
+                "rationale": "Quantifying energy use is essential in understanding the device's impact during use.",
+                "link": "https://support.google.com/pixel"
+            }
+        },
+        "B7 Processes": {
+            "Water Impact": {
+                "description": "Use of water associated with the operation of the phone (e.g., in manufacturing).",
+                "rationale": "No significant water use during the operational phase except indirect factors in data centers.",
+                "link": "https://sustainability.google/water/"
+            }
+        },
+        "C1 Processes": {
+            "Device Decommissioning": {
+                "description": "Safely deactivating the device for disposal or recycling.",
+                "rationale": "Initiates the end-of-life stage and prepares the device for recycling.",
+                "link": "https://sustainability.google"
+            }
+        },
+        "C2 Processes": {
+            "Waste Transport": {
+                "description": "Logistics for moving phones to recycling centers and waste management facilities.",
+                "rationale": "Integral to ensuring proper recycling and disposal of e-waste.",
+                "link": "https://www.electronicstakeback.com"
+            }
+        },
+        "C3 Processes": {
+            "Recycling Processes": {
+                "description": "Breaking down devices into reusable components or materials.",
+                "rationale": "Crucial for recovering materials and minimizing environmental impacts.",
+                "link": "https://sustainability.google/recycle/"
+            }
+        },
+        "C4 Processes": {
+            "Disposal": {
+                "description": "Final disposal of non-recyclable components in landfills or waste facilities.",
+                "rationale": "Necessary for handling components that cannot be recycled further.",
+                "link": "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling"
+            }
+        }
+    }
+}

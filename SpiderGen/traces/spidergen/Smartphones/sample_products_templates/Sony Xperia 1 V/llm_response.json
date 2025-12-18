@@ -1,0 +1,126 @@
+{
+    "processes": {
+        "A1 Processes": {
+            "Raw Material Extraction and Processing": {
+                "description": "Extraction and processing of raw materials like lithium for batteries, silica for glass, and metals like aluminum.",
+                "rationale": "Raw materials are critical components, particularly metals and silica, which form the fundamental structure of the phone.",
+                "link": "https://www.sony.com/en/Sustainability/SonyMaterials"
+            },
+            "Component Production": {
+                "description": "Manufacturing of key components such as processors, camera modules, and display panels.",
+                "rationale": "Critical to the phone's performance and functionality, involving complex manufacturing processes.",
+                "link": "https://www.qualcomm.com/products/snapdragon-8-series"
+            }
+        },
+        "A2 Processes": {
+            "Transport of Raw Materials": {
+                "description": "Logistics involved in moving raw materials and components from suppliers to Sony manufacturing plants.",
+                "rationale": "Transport impacts the carbon footprint and involves significant logistics management.",
+                "link": "https://sourcingprocurement.sonymobile.com/logistics/"
+            }
+        },
+        "A3 Processes": {
+            "Assembly": {
+                "description": "Assembling components into the final product, including camera alignment and software installation.",
+                "rationale": "The core manufacturing process that transforms components into the finished device.",
+                "link": "https://www.sony.co.uk/electronics/smartphones/xperia-1m5"
+            },
+            "Quality Control": {
+                "description": "Ensuring the finished product meets performance and safety standards through rigorous testing.",
+                "rationale": "Essential for maintaining high product standards and user safety.",
+                "link": "https://blog.sony.com/xperia-quality-testing/"
+            }
+        },
+        "A4 Processes": {
+            "Distribution": {
+                "description": "Transporting the finished products to various retail and online points of sale.",
+                "rationale": "Distribution logistics significantly impact energy usage and emissions.",
+                "link": "https://www.sony.com/en/Sustainability/SonyTransport"
+            }
+        },
+        "A5 Processes": {
+            "Installation and Setup": {
+                "description": "User unpacking and initial setup of the phone, including software updates.",
+                "rationale": "The process contributes to packaging waste and sets the baseline for user experience.",
+                "link": "https://support.sonymobile.com/us/xperia1V/"
+            }
+        },
+        "B1 Processes": {
+            "Product Use": {
+                "description": "Daily usage includes calling, browsing, and entertainment activities.",
+                "rationale": "Primary phase where user interaction determines the device's functional use.",
+                "link": "https://www.sony.co.uk/electronics/xperia-1v-usage"
+            }
+        },
+        "B2 Processes": {
+            "Software Maintenance and Updates": {
+                "description": "Periodic software updates enhance performance and security.",
+                "rationale": "Maintains device functionality and extends its usable life.",
+                "link": "https://www.sony.com/support/products/xperia-updates"
+            }
+        },
+        "B3 Processes": {
+            "Screen Repair": {
+                "description": "Service for repairing or replacing broken screens.",
+                "rationale": "Common repair that saves resources by avoiding full device replacement.",
+                "link": "https://support.sonymobile.com/global-en/xperia1V/screen-repair/"
+            }
+        },
+        "B4 Processes": {
+            "Battery Replacement": {
+                "description": "Replacing the battery to extend device life when original battery performance degrades.",
+                "rationale": "Critical for sustainability through device longevity.",
+                "link": "https://www.sony.com/repair/battery-replacement"
+            }
+        },
+        "B5 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Refurbishment not typically applicable to standard phone use.",
+                "link": "N/A"
+            }
+        },
+        "B6 Processes": {
+            "Energy Use During Operation": {
+                "description": "Electricity used for charging and operating the phone.",
+                "rationale": "Represents a significant part of the phone's life cycle energy consumption.",
+                "link": "https://www.sonygroup.com/en/environment/energy_efficient"
+            }
+        },
+        "B7 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "Water use is not applicable for electronic device use.",
+                "link": "N/A"
+            }
+        },
+        "C1 Processes": {
+            "De-installation": {
+                "description": "Removing and preparing the device for recycling or disposal.",
+                "rationale": "Begins the end-of-life process necessary for proper recycling.",
+                "link": "https://www.sony.net/SonyInfo/csr_report/recycle/disposal"
+            }
+        },
+        "C2 Processes": {
+            "Transport to Recycling Center": {
+                "description": "Logistics involved in sending disposed devices to recycling facilities.",
+                "rationale": "Critical to ensuring devices are processed sustainably.",
+                "link": "https://www.sonygroup.com/en/environment/operation/transportation"
+            }
+        },
+        "C3 Processes": {
+            "Recycling": {
+                "description": "The process of recovering materials from old devices.",
+                "rationale": "Reduces environmental impacts by reusing valuable materials.",
+                "link": "https://www.sony.com/electronics/eco-friendly-products"
+            }
+        },
+        "C4 Processes": {
+            "Disposal of Non-Recyclable Waste": {
+                "description": "Managing waste that cannot be recycled, ensuring safe disposal.",
+                "rationale": "Crucial for handling e-waste responsibly.",
+                "link": "https://www.sony.com/sustainability/disposal-guidelines"
+            }
+        }
+    }
+}

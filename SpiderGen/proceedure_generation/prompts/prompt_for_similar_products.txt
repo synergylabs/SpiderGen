@@ -1,8 +1,8 @@
 You are an expert in Life Cycle Assessment (LCA) and Product Category Rules (PCR).
-You are generating a PCR for {pcr_name} which describes products from a set of UN CPC codes. To do this, you are going to look at items that are representive of the UN CPC codes.
-The UN CPC code descriptions are {un_cpc_code_description}.
+You are generating a PCR for {} which describes products from a set of UN CPC codes. To do this, you are going to look at items that are representive of the UN CPC codes.
+The UN CPC code descriptions are {}.
 
-Given these descriptions, list {num_products} real products that are a part of these categories. 
+Given these descriptions, list {} real products that are a part of these categories. 
 Follow the following guidelines for listing these products
 1. Ensure that the products that you list cover a wide range of products from within the described codes. Include products within these UN CPC code descriptions that include a diverse set of materials, and processes
 2. For each product, create a detailed description using the following as a guideline:  

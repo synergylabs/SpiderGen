@@ -1,0 +1,141 @@
+{
+    "processes": {
+        "A1 Processes": {
+            "Raw Material Extraction": {
+                "description": "This process involves extracting raw materials necessary for manufacturing components of Xiaomi Mi 11, such as metals for electronics, glass, and plastics.",
+                "rationale": "Raw materials are essential to creating the components of the smartphone.",
+                "link": "https://www.wpi.edu/news/great-challenges-raw-materials"
+            },
+            "Component Manufacturing": {
+                "description": "This includes the production of intermediate materials and the fabrication of components like the AMOLED display and Snapdragon chipset.",
+                "rationale": "Components need to be manufactured before assembly into the final product.",
+                "link": "https://www.sciencedirect.com/science/article/pii/S2214785320300705"
+            },
+            "Eco-Friendly Packaging Production": {
+                "description": "Production of packaging with reduced environmental impact, avoiding plastic wraps.",
+                "rationale": "Sustainable packaging is part of the product's life cycle.",
+                "link": "https://www.xiaomi.com/global/service/support/common"
+            }
+        },
+        "A2 Processes": {
+            "Transport of Raw Materials": {
+                "description": "Transportation of raw materials from extraction sites to manufacturing facilities.",
+                "rationale": "Logistics are required to move materials to where they are processed.",
+                "link": "https://www.energy.gov/eere/vehicles/energy-use-logistics"
+            },
+            "Transport of Components": {
+                "description": "Shipping of various components and materials to the final assembly plant.",
+                "rationale": "Components need to be assembled at a central location.",
+                "link": "https://www.sciencedirect.com/science/article/pii/S2352146518304311"
+            }
+        },
+        "A3 Processes": {
+            "Final Assembly": {
+                "description": "Assembling parts into the final Xiaomi Mi 11 product.",
+                "rationale": "The final assembly is necessary to create a market-ready product.",
+                "link": "https://www.allaboutcircuits.com/news/design-considerations-for-a-factory-assembly-of-pcbs"
+            },
+            "Quality Control": {
+                "description": "Ensuring all products meet Xiaomi's quality standards before distribution.",
+                "rationale": "Quality control ensures product reliability and customer satisfaction.",
+                "link": "https://asq.org/quality-resources/quality-control"
+            }
+        },
+        "A4 Processes": {
+            "Distribution to Warehouses": {
+                "description": "Moving finished products from the factory to distribution warehouses.",
+                "rationale": "Warehousing facilitates product readiness for market distribution.",
+                "link": "https://www.inboundlogistics.com/cms/article/warehouse-strategy-design-proven-practices/"
+            },
+            "Retail Distribution": {
+                "description": "Distribution from warehouses to retail stores and online platforms.",
+                "rationale": "Retail distribution connects the product to consumers.",
+                "link": "https://www.salehoo.com/blog/guide-to-distribution-channels"
+            }
+        },
+        "A5 Processes": {
+            "Customer Setup": {
+                "description": "Activities associated with customer unboxing and setup of the device.",
+                "rationale": "The setup is part of the user experience and product adoption.",
+                "link": "https://www.digi.com/blog/post/the-unboxing-experience-matters"
+            }
+        },
+        "B1 Processes": {
+            "Device Usage": {
+                "description": "Operation of Xiaomi Mi 11 by the end user, including its connectivity and applications.",
+                "rationale": "Use phase is integral for understanding the product lifecycle.",
+                "link": "https://www.xda-developers.com/best-tips-tricks-xiaomi-mi-11-mi-11-ultra/"
+            }
+        },
+        "B2 Processes": {
+            "Software Updates": {
+                "description": "Provision of software updates for security and performance enhancements.",
+                "rationale": "Maintenance through updates is essential for product longevity.",
+                "link": "https://support.mi.com/"
+            }
+        },
+        "B3 Processes": {
+            "Screen Repair": {
+                "description": "Repair process for cracked screens or other damages.",
+                "rationale": "Repairs extend the lifespan of the product.",
+                "link": "https://www.androidauthority.com/what-to-do-if-you-crack-your-smartphone-screen-848782/"
+            }
+        },
+        "B4 Processes": {
+            "Battery Replacement": {
+                "description": "Replacing old or degraded batteries to ensure continued device performance.",
+                "rationale": "Batteries are wear components that need eventual replacement.",
+                "link": "https://batteryuniversity.com/article/library/types-of-lithium-ion"
+            }
+        },
+        "B5 Processes": {
+            "Device Refurbishment": {
+                "description": "Refurbishing devices for resale or redistribution.",
+                "rationale": "Refurbishment can bring the device back to a usable condition.",
+                "link": "https://www.howtogeek.com/faq-should-i-buy-a-refurbished-gadget/"
+            }
+        },
+        "B6 Processes": {
+            "Energy Consumption": {
+                "description": "Energy used during device operation, including battery charging.",
+                "rationale": "Energy consumption impacts the ecological footprint during use.",
+                "link": "https://www.techradar.com/how-to/how-much-energy-are-your-gadgets-really-using"
+            }
+        },
+        "B7 Processes": {
+            "N/A": {
+                "description": "N/A",
+                "rationale": "The Xiaomi Mi 11 does not require water during usage.",
+                "link": "N/A"
+            }
+        },
+        "C1 Processes": {
+            "Product Decommission": {
+                "description": "Activities related to taking the device out of service.",
+                "rationale": "Important for transition to end-of-life phase.",
+                "link": "https://www.altium.com/solution/obsolescence-management"
+            }
+        },
+        "C2 Processes": {
+            "Transport to Recycling": {
+                "description": "Transporting the decommissioned product to recycling centers.",
+                "rationale": "Efficient waste management of the product is critical.",
+                "link": "https://www.zdnet.com/article/recycling-old-cell-phones/"
+            }
+        },
+        "C3 Processes": {
+            "Electronic Waste Processing": {
+                "description": "Processing and recovery of components and materials from the product.",
+                "rationale": "Recycling components mitigates environmental impact.",
+                "link": "https://www.epa.gov/international-cooperation/cleaning-electronic-waste-conundrum"
+            }
+        },
+        "C4 Processes": {
+            "Final Disposal": {
+                "description": "Disposal of non-recyclable elements and materials from the product.",
+                "rationale": "Responsible disposal is necessary for environmental management.",
+                "link": "https://www.earthday.org/how-to-recycle-your-electronics-properly/"
+            }
+        }
+    }
+}

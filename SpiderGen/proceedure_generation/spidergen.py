@@ -1,5 +1,6 @@
 import os
-from spidergen_utils import get_clusters_summary
+from proceedure_generation.spidergen_utils import get_clusters_summary
+import json
 def spidergen(product_category_name, product_category_description, number_sample_products, model_manager, trace=True):
     """
     Generates a Process Flow Graph for the given product category.
@@ -12,13 +13,13 @@ def spidergen(product_category_name, product_category_description, number_sample
         trace (bool): Whether to enable tracing for LCA transparency. """
     
     # Load prompts
-    with open('SpiderGen/proceedure_generation/prompts/prompt_for_similar_products.txt', 'r') as f:
+    with open('proceedure_generation/prompts/prompt_for_similar_products.txt', 'r') as f:
         prompt_similar_products_template = f.read().format(product_category_name, product_category_description, number_sample_products)
     
-    with open('SpiderGen/proceedure_generation/prompts/prompt_for_sample_product_template.txt', 'r') as f:
-        prompt_sample_product_template = f.read().format()
+    with open('proceedure_generation/prompts/prompt_for_sample_product_template.txt', 'r') as f:
+        prompt_sample_product_template = f.read()
     
-    with open('SpiderGen/proceedure_generation/prompts/prompt_for_generating_pfg.txt', 'r') as f:
+    with open('proceedure_generation/prompts/prompt_for_generating_pfg.txt', 'r') as f:
         prompt_generating_clusters_template = f.read()
 
     # If trace is enabled, each step of the generation process will be recorded in a folder
@@ -34,29 +35,39 @@ def spidergen(product_category_name, product_category_description, number_sample
         
     
     # Generate similar products
-    similar_products_response = model_manager.generate_json(prompt_similar_products_template, trace_folder=os.path.join(trace_folder, "similar_products") if trace else None)
-
+    trace_path_similar_products = os.path.join(trace_folder, "similar_products") if trace else None
+    if os.path.exists(trace_path_similar_products):
+        with open(os.path.join(trace_path_similar_products, 'llm_response.json'), 'r') as f:
+            similar_products_response = json.load(f)
+    else:
+        similar_products_response = model_manager.generate_json('llm',prompt_similar_products_template, trace_folder=trace_path_similar_products if trace else None)
+    print("Similar Products Response:", similar_products_response)
     #generate template for similar products
-    sample_product_response_list = []
+    sample_product_response_list = dict({})
     for product in similar_products_response['product']:
         prompt_sample_product = prompt_sample_product_template.format(product, similar_products_response['product'][product]['description'])
-        sample_product_response = model_manager['llm'].generate_json(prompt_sample_product, trace_folder=os.path.join(trace_folder, "sample_products_templates") if trace else None)
-        sample_product_response_list.append(sample_product_response)
+        if os.path.exists(os.path.join(trace_folder, f"sample_products_templates/{product}/llm_response.json")) and trace:
+            with open(os.path.join(trace_folder, f"sample_products_templates/{product}/llm_response.json"), 'r') as f:
+                sample_product_response = json.load(f)
+        else:
+            sample_product_response = model_manager.generate_json('llm', prompt_sample_product, trace_folder=os.path.join(trace_folder,f"sample_products_templates/{product}") if trace else None)
+        sample_product_response_list[product] = sample_product_response
     
     # generate semantically similar clusters
     #prompt_generating_clusters = prompt_generating_clusters_template.format(sample_product_response_list, model.embedding_model_name)
-    clusters_response = get_clusters_summary(sample_product_response_list, model_manager['embedding_transformer'])
+    clusters_response = get_clusters_summary(sample_product_response_list, model_manager.models['embedding_transformer'])
+    
     #prompt_generating_clusters = prompt_generating_clusters_template.format(clusters_response, product_category_description)
 
     # Combine clusters into final Process Flow Graph
-    prompt_generating_clusters = prompt_generating_clusters_template.format( clusters_response, product_category_description)
-    final_pfg_response = model_manager['llm'].generate_json(prompt_generating_clusters, trace_folder=os.path.join(trace_folder, "final_pfg/{product_category_name}.json") if trace else None)
+    prompt_generating_clusters = prompt_generating_clusters_template.format(product_category_description,  clusters_response, product_category_description)
+    final_pfg_response = model_manager.generate_json('llm', prompt_generating_clusters, trace_folder=os.path.join(trace_folder, "final_pfg/{product_category_name}.json") if trace else None)
 
     return final_pfg_response
 
 #example of spidergen usage
 if __name__ == "__main__":
-    from SpiderGen.utils.model_manager import ModelManager
+    from utils.model_manager import ModelManager
     from config import model_config
 
     model_manager = ModelManager()
