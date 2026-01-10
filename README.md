@@ -41,20 +41,24 @@ This source code contains the following:
 
 The **spiderGen** folder contains the core modules to run SpiderGen, including:
 - **utils**, which contains code to configure an LLM backend for SpiderGen
-- **proceedure_generation**, which contains the prompts for each stage of the workflow, as well as code for the clustering steps. The proceedure generation steps are based on ISO standard ISO 14025:2006, however, the workflow can be modified to icorporate different standards if needed.
+- **procedure_generation**, which contains the prompts for each stage of the workflow, as well as code for the clustering steps. The proceedure generation steps are based on ISO standard ISO 14025:2006.
 - **spidergen_example.ipynb**, which is Jupyter notebook containing an example PFG using the SpiderGen workflow
 
-To run, ensure that you have all of the requirements in your environment and edit config.py with your api key and model configuration
+To run, ensure that you have all of the requirements in your environment and edit config.py with your api key and model configuration. You can select between openai, anthropic and ollama models.
+
+To ensure that requirements are installed run "pip install -r requirements.txt"
+
+Then, run each cell to get the SpiderGen output!
 
 
 ***Below: Coming soon!!***
 The **evaluation** folder contains the modules used to evaluate SpiderGen, including:
--**pmi.py**, which contains code for calculating the PMI between ground-truth PCR PFG processes and SpiderGen PFG processes
--**metrics.py** which contains code for calculating existing semantic similarity metrics, such as ROUGE and BLEU between ground-truth PCR PFG processes and SpiderGen PFG processes
--**baselines.py** which contains LLM prompts and code to generate the baselines used in our paper
+- **pmi.py**, which contains code for calculating the PMI between ground-truth PCR PFG processes and SpiderGen PFG processes
+- **metrics.py** which contains code for calculating existing semantic similarity metrics, such as ROUGE and BLEU between ground-truth PCR PFG processes and SpiderGen PFG processes
+- **baselines.py** which contains LLM prompts and code to generate the baselines used in our paper
 
 ## Getting Started
-Do the following to get started with this codebase!
+To get started with this codebase, first ensure that all of the requirements are installed. These requirements are listed in requirements.txt. To install these requirements, create a new python environment and run 
 
 ### Getting Ground-Truth Data for Evaluation 
 

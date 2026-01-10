@@ -1,4 +1,5 @@
 #modify this config file to set API keys and model configurations
+# specifically, select a sentence transformer, and a large langugage model 
 anthropic_api_key = 'blank'
 openai_api_key = 'blank'
 model_config = dict({

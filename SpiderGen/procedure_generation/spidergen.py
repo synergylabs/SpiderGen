@@ -24,7 +24,7 @@ def spidergen(product_category_name, product_category_description, number_sample
 
     # If trace is enabled, each step of the generation process will be recorded in a folder
     if trace:
-        trace_folder = f"traces/spidergen/{product_category_name.replace(' ', '_')}"
+        trace_folder = f"./traces/spidergen/{product_category_name.replace(' ', '_')}"
         os.makedirs(trace_folder, exist_ok=True)
         os.makedirs(os.path.join(trace_folder, "similar_products"), exist_ok=True)
         os.makedirs(os.path.join(trace_folder, "sample_products_templates"), exist_ok=True)
@@ -35,10 +35,13 @@ def spidergen(product_category_name, product_category_description, number_sample
         
     
     # Generate similar products
-    trace_path_similar_products = os.path.join(trace_folder, "similar_products") if trace else None
-    if os.path.exists(trace_path_similar_products):
-        with open(os.path.join(trace_path_similar_products, 'llm_response.json'), 'r') as f:
-            similar_products_response = json.load(f)
+    if trace:
+        trace_path_similar_products = os.path.join(trace_folder, "similar_products")
+        print(trace_path_similar_products)
+        trace_file = os.path.join(trace_path_similar_products, "llm_response.json")
+        if os.path.isfile(trace_file) and trace:
+            with open(trace_file, "r") as f:
+                similar_products_response = json.load(f)
     else:
         similar_products_response = model_manager.generate_json('llm',prompt_similar_products_template, trace_folder=trace_path_similar_products if trace else None)
     print("Similar Products Response:", similar_products_response)
@@ -46,9 +49,11 @@ def spidergen(product_category_name, product_category_description, number_sample
     sample_product_response_list = dict({})
     for product in similar_products_response['product']:
         prompt_sample_product = prompt_sample_product_template.format(product, similar_products_response['product'][product]['description'])
-        if os.path.exists(os.path.join(trace_folder, f"sample_products_templates/{product}/llm_response.json")) and trace:
-            with open(os.path.join(trace_folder, f"sample_products_templates/{product}/llm_response.json"), 'r') as f:
-                sample_product_response = json.load(f)
+        if trace:
+            save_path_sample_product_template = os.path.join(trace_folder, f"sample_products_templates/{product}/llm_response.json")
+            if os.path.exists(save_path_sample_product_template) and trace:
+                with open(save_path_sample_product_template, 'r') as f:
+                    sample_product_response = json.load(f)
         else:
             sample_product_response = model_manager.generate_json('llm', prompt_sample_product, trace_folder=os.path.join(trace_folder,f"sample_products_templates/{product}") if trace else None)
         sample_product_response_list[product] = sample_product_response
@@ -61,34 +66,8 @@ def spidergen(product_category_name, product_category_description, number_sample
 
     # Combine clusters into final Process Flow Graph
     prompt_generating_clusters = prompt_generating_clusters_template.format(product_category_description,  clusters_response, product_category_description)
-    final_pfg_response = model_manager.generate_json('llm', prompt_generating_clusters, trace_folder=os.path.join(trace_folder, "final_pfg/{product_category_name}.json") if trace else None)
+    final_pfg_response = model_manager.generate_json('llm', prompt_generating_clusters, trace_folder=os.path.join(trace_folder, "final_pfg.json") if trace else None)
 
     return final_pfg_response
 
-#example of spidergen usage
-if __name__ == "__main__":
-    from utils.model_manager import ModelManager
-    from config import model_config
-
-    model_manager = ModelManager()
-    model_manager.create_model_environ(
-        sources=model_config['sources'],
-        model_names=model_config['model_names'],
-        roles=model_config['roles']
-    )
-
-    product_category_name = "Smartphones"
-    product_category_description = "Devices that combine a mobile phone with a handheld computer, typically offering internet access, data storage, and multimedia capabilities."
-    number_sample_products = 5
-
-    pfg = spidergen(
-        product_category_name,
-        product_category_description,
-        number_sample_products,
-        model_manager,
-        trace=True
-    )
-
-    print("Generated Process Flow Graph:")
-    print(pfg)
 

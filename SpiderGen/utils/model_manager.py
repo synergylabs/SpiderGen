@@ -61,30 +61,41 @@ def safe_json_load(response_content):
         print("Offending text:", response_content)
         return "{}"
 
-def generate_json_openai(prompt, client, model_name):
-    completion = client.chat.completions.create(
-        model = model_name,
-        #seed = 42,
-        messages=[
-            {
-                "role": "user",
-                "content":prompt
-            }
-        ]
-    )
-    llm_response = safe_json_load(completion.choices[0].message.content)
-    return llm_response
 
-def generate_json_anthropic(prompt, client, model_name):
-    completion = client.messages.create(
-            model=model_name,
-            max_tokens=5000,
+def generate_json_openai(prompt, client, model_name, max_retry):
+    for attempt in range(max_retry):
+        completion = client.chat.completions.create(
+            model = model_name,
+            #seed = 42,
             messages=[
-                {"role": "user", "content": prompt}
+                {
+                    "role": "user",
+                    "content":prompt
+                }
             ]
         )
-    
-    llm_response = safe_json_load(completion.choices[0].message.content)
+        llm_response = safe_json_load(completion.choices[0].message.content)
+        if llm_response == "{}":
+            continue
+        else:
+            return llm_response
+    return llm_response
+
+def generate_json_anthropic(prompt, client, model_name, max_retry):
+    for attempt in range(max_retry):
+        completion = client.messages.create(
+                model=model_name,
+                max_tokens=5000,
+                messages=[
+                    {"role": "user", "content": prompt}
+                ]
+            )
+        
+        llm_response = safe_json_load(completion.choices[0].message.content)
+        if llm_response == "{}":
+                continue
+        else:
+            return llm_response
     return llm_response
 
 class ModelManager:
@@ -92,6 +103,7 @@ class ModelManager:
         self.models = dict({})
         self.model_names = dict({})
         self.model_source = dict({})
+        self.max_retries = 3
     
     def load_model_from_source(self, name, source):
         if source == 'openai':
@@ -128,14 +140,14 @@ class ModelManager:
     def generate_json(self, name, prompt,trace_folder=None):
         print(self.model_source[name])
         if self.model_source[name] == 'openai':
-            response = generate_json_openai(prompt,self.models[name], self.model_names[name])
+            response = generate_json_openai(prompt,self.models[name], self.model_names[name], self.max_retries)
             if trace_folder:
                 os.makedirs(trace_folder, exist_ok=True)
                 with open(os.path.join(trace_folder, f"{name}_response.json"), 'w') as f:
                     json.dump(response, f, indent=4)
             return response
         elif self.model_source[name] == 'anthropic':
-            response =generate_json_anthropic(prompt, self.models[name], self.model_names[name])
+            response =generate_json_anthropic(prompt, self.models[name], self.model_names[name], self.max_retries)
             if trace_folder:
                 os.makedirs(trace_folder, exist_ok=True)
                 with open(os.path.join(trace_folder, f"{name}_response.json"), 'w') as f:

@@ -5,14 +5,23 @@ import numpy as np
 import json
 from sklearn.cluster import KMeans
 from sklearn.metrics import davies_bouldin_score
-
+import json
+import networkx as nx
+import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch
+import matplotlib.patches as mpatches
+'''
+Additional utilities needed to run spidergen, as well as tools to visualize spidergen results
+'''
 def get_k_means_clustering(encoded_processes, processes_dict, all_processes):
     '''
+    gets the clusters of related processes
+
     encoded_processes: encoded processes of sample products
     processes_dict: dictionary of processes for all sample products
     all_processes: list of all processes for for all sample products combined
 
-
+    returns a dictionary with the clustered processes for a life cycle stage
     '''
     
     # If no processes exist for this category of processes, return an empty dictionary
@@ -314,3 +323,135 @@ def get_clusters_summary(product_templates, transformer_model):
         processes_list.append(c4_clusters)
     
     return np.array(processes_list).flatten()
+
+def visualize_process_flow(json_data):
+    """
+    Visualize a process flow graph from JSON data.
+    
+    Args:
+        json_data: Either a JSON string or a dictionary containing process flow data
+    """
+    # Parse JSON if string is provided
+    if isinstance(json_data, str):
+        data = json.loads(json_data)
+    else:
+        data = json_data
+    
+    # Create directed graph
+    G = nx.DiGraph()
+    
+    # Category colors
+    category_colors = {
+        'upstream': "#87D9EB",      
+        'core': '#FFD700',          
+        'downstream': "#FB9A98", 
+        'other':"#FFFFFF"      
+    }
+    
+    # Add nodes with attributes
+    for process_name, process_info in data['processes'].items():
+        G.add_node(process_name,
+                   category=process_info.get('process_category', 'other'),
+                   is_subprocess=process_info.get('is_subprocess', 'other'),
+                   description=process_info.get('description', 'other'))
+    
+    # Add edges
+    for process_name, process_info in data['processes'].items():
+        for output in process_info['output_nodes']:
+            G.add_edge(process_name, output)
+    
+    # Create figure
+    fig, ax = plt.subplots(figsize=(20, 14))
+    
+    # Use hierarchical layout
+    pos = nx.spring_layout(G, k=3, iterations=50, seed=42)
+    
+    # Try to organize by category vertically
+    categories = ['downstream', 'core', 'upstream']
+    y_positions = {cat: i * 2 for i, cat in enumerate(categories)}
+    
+    # Adjust positions based on category
+    for node in G.nodes():
+        category = G.nodes[node]['category']
+        pos[node] = (pos[node][0], pos[node][1] + y_positions[category])
+    
+    # Draw edges
+    nx.draw_networkx_edges(G, pos, ax=ax, 
+                          edge_color='gray', 
+                          arrows=True,
+                          arrowsize=20,
+                          arrowstyle='-|>',
+                          width=2,
+                          alpha=0.6,
+                          connectionstyle='arc3,rad=0.1')
+    
+    # Draw nodes by category
+    for category in categories:
+        nodelist = [node for node in G.nodes() 
+                   if G.nodes[node]['category'] == category]
+        
+        if nodelist:
+            nx.draw_networkx_nodes(G, pos, 
+                                  nodelist=nodelist,
+                                  node_color=category_colors[category],
+                                  node_shape='o',
+                                  node_size=3000,
+                                  edgecolors='black',
+                                  linewidths=2,
+                                  ax=ax)
+    
+    # Draw labels with word wrapping
+    labels = {}
+    for node in G.nodes():
+        # Wrap long labels
+        words = node.split()
+        wrapped = []
+        line = []
+        for word in words:
+            line.append(word)
+            if len(' '.join(line)) > 20:
+                wrapped.append(' '.join(line))
+                line = []
+        if line:
+            wrapped.append(' '.join(line))
+        labels[node] = '\n'.join(wrapped)
+    
+    nx.draw_networkx_labels(G, pos, labels, 
+                           font_size=8,
+                           font_weight='bold',
+                           ax=ax)
+    
+    # Create legend
+    legend_elements = []
+    
+    # Category legend
+    for category, color in category_colors.items():
+        legend_elements.append(mpatches.Patch(color=color, 
+                                             label=category.capitalize()))
+    
+    ax.legend(handles=legend_elements, loc='upper left', fontsize=10)
+    
+    # Add title
+    plt.title('Process Flow Diagram', fontsize=16, fontweight='bold', pad=20)
+    
+    # Remove axes
+    ax.axis('off')
+    
+    # Adjust layout
+    plt.tight_layout()
+    
+    return fig, ax
+
+def save_visualization(data, output_file='process_flow.png'):
+    """
+    Load JSON from file and save visualization.
+    
+    Args:
+        data: dictionary representation of pfg
+        output_file: Output image file path
+    """
+    
+    fig, ax = visualize_process_flow(data)
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
+    print(f"Visualization saved to {output_file}")
+    plt.show()
