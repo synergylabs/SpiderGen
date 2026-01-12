@@ -42,24 +42,54 @@ This source code contains the following:
 The **spiderGen** folder contains the core modules to run SpiderGen, including:
 - **utils**, which contains code to configure an LLM backend for SpiderGen
 - **procedure_generation**, which contains the prompts for each stage of the workflow, as well as code for the clustering steps. The proceedure generation steps are based on ISO standard ISO 14025:2006.
-- **spidergen_example.ipynb**, which is Jupyter notebook containing an example PFG using the SpiderGen workflow
+- **spidergen_example.ipynb**, which is Jupyter notebook containing an example PFG using the SpiderGen workflow. Run each cell to get the an example usage of SpiderGen.
 
-To run, ensure that you have all of the requirements in your environment and edit config.py with your api key and model configuration. You can select between openai, anthropic and ollama models.
+## Getting Started
 
+### Pre-requisites:
+You must have 
+* Python 3.8+ installed
+* Api keys for LLM services
+* pip installed
+
+### Creating the python environment:
+First, create a python environment using 
+```
+python3 -m venv spidergen
+```
+then activate it with 
+```
+source spidergen/bin/activate
+```
 To ensure that requirements are installed run "pip install -r requirements.txt"
 
-Then, run each cell to get the SpiderGen output!
+### Modifying the model configuration
+To select models to use in the SpiderGen workflow, edit config.py with your api key and model configuration. 
+You must configure a Sentence Transformer model, as well as an LLM. 
+We currently support openai and anthropic models for the LLM.
+
+When designating the model, the "role" indicates what the model is used for, and the "model_name" indicates the specific model that is being used. The "sources" are the source of the model (i.e, openai). 
+
+For example:
+```
+model_config = dict({
+    'roles': ['embedding_transformer', 'llm'],
+    'model_names': ['all-mpnet-base-v2', 'gpt-4o-2024-08-06'],
+    'sources': ['sentence_transformer', 'openai']
+})
+```
+
+These models are then handled by ModelManager (in the utils folder) to handle both sentence embedding and response generation requests. 
 
 
-***Below: Coming soon!!***
+### Getting Ground-Truth Data for Evaluation 
+Our ground-truth evaluation relies on data from EPD International's PCR Library (https://www.environdec.com/pcr-library). To access these PCRs, you must make an account. We then downloaded every document and determined which would be suitable as evaluation data points based on how complete the information was in each document (i.e, not including any documents that were simply supplementary and did not contain a PCR PFG on its own). For the list of PCRs that we utilized, refer to the technical appendix in our paper. 
+
+***Evaluation Code: Coming soon!!***
 The **evaluation** folder contains the modules used to evaluate SpiderGen, including:
 - **pmi.py**, which contains code for calculating the PMI between ground-truth PCR PFG processes and SpiderGen PFG processes
 - **metrics.py** which contains code for calculating existing semantic similarity metrics, such as ROUGE and BLEU between ground-truth PCR PFG processes and SpiderGen PFG processes
 - **baselines.py** which contains LLM prompts and code to generate the baselines used in our paper
 
-## Getting Started
-To get started with this codebase, first ensure that all of the requirements are installed. These requirements are listed in requirements.txt. To install these requirements, create a new python environment and run 
-
-### Getting Ground-Truth Data for Evaluation 
 
 
