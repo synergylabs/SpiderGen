@@ -42,9 +42,11 @@ def spidergen(product_category_name, product_category_description, number_sample
         if os.path.isfile(trace_file) and trace:
             with open(trace_file, "r") as f:
                 similar_products_response = json.load(f)
+        else: 
+            similar_products_response = model_manager.generate_json('llm',prompt_similar_products_template, trace_folder=trace_path_similar_products if trace else None)
     else:
         similar_products_response = model_manager.generate_json('llm',prompt_similar_products_template, trace_folder=trace_path_similar_products if trace else None)
-    print("Similar Products Response:", similar_products_response)
+    #print("Similar Products Response:", similar_products_response)
     #generate template for similar products
     sample_product_response_list = dict({})
     for product in similar_products_response['product']:
@@ -54,6 +56,8 @@ def spidergen(product_category_name, product_category_description, number_sample
             if os.path.exists(save_path_sample_product_template) and trace:
                 with open(save_path_sample_product_template, 'r') as f:
                     sample_product_response = json.load(f)
+            else:
+                sample_product_response = model_manager.generate_json('llm', prompt_sample_product, trace_folder=os.path.join(trace_folder,f"sample_products_templates/{product}") if trace else None)
         else:
             sample_product_response = model_manager.generate_json('llm', prompt_sample_product, trace_folder=os.path.join(trace_folder,f"sample_products_templates/{product}") if trace else None)
         sample_product_response_list[product] = sample_product_response

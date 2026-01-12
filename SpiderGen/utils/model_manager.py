@@ -1,4 +1,3 @@
-from ollama import chat, pull
 import os
 import json
 import ast
@@ -10,6 +9,7 @@ Supports OpenAI, Anthropic and Sentence Transformers.
 
 def safe_json_load(response_content):
     if isinstance(response_content, dict):
+        print('in here')
         return json.dumps(response_content, ensure_ascii=False)
 
     if not isinstance(response_content, str):
@@ -17,11 +17,26 @@ def safe_json_load(response_content):
 
     response_content = re.sub(r"^```[a-zA-Z]*\n?", "", response_content.strip())
     response_content = re.sub(r"```$", "", response_content.strip())
+    response_content = response_content.replace('"', '"').replace('"', '"')
+    response_content = response_content.replace("'", "'").replace("'", "'")
 
-    if '{' in response_content and '}' in response_content:
+    if '{' in response_content:
         start = response_content.find('{')
-        end = response_content.rfind('}') + 1
-        response_content = response_content[start:end]
+        
+        # Find the MATCHING closing brace, not just the last one
+        brace_count = 0
+        end = start
+        for i in range(start, len(response_content)):
+            if response_content[i] == '{':
+                brace_count += 1
+            elif response_content[i] == '}':
+                brace_count -= 1
+                if brace_count == 0:
+                    end = i + 1
+                    break
+        
+        if end > start:
+            response_content = response_content[start:end]
 
     try:
         python_obj = ast.literal_eval(response_content)
@@ -41,6 +56,8 @@ def safe_json_load(response_content):
         .replace(" True", " true")
         .replace(" False", " false")
     )
+    
+    fixed_val = re.sub(r',(\s*[}\]])', r'\1', fixed_val)
 
     fixed_val = re.sub(
         r"(?<=\{|,)\s*'([^']+)'\s*:",
@@ -59,7 +76,7 @@ def safe_json_load(response_content):
     except Exception as e:
         print("Failed to parse JSON-like string:", e)
         print("Offending text:", response_content)
-        return "{}"
+        return {}
 
 
 def generate_json_openai(prompt, client, model_name, max_retry):
@@ -75,7 +92,7 @@ def generate_json_openai(prompt, client, model_name, max_retry):
             ]
         )
         llm_response = safe_json_load(completion.choices[0].message.content)
-        if llm_response == "{}":
+        if llm_response == {}:
             continue
         else:
             return llm_response
@@ -85,14 +102,14 @@ def generate_json_anthropic(prompt, client, model_name, max_retry):
     for attempt in range(max_retry):
         completion = client.messages.create(
                 model=model_name,
-                max_tokens=5000,
+                max_tokens=8192,
                 messages=[
                     {"role": "user", "content": prompt}
                 ]
             )
         
-        llm_response = safe_json_load(completion.choices[0].message.content)
-        if llm_response == "{}":
+        llm_response = safe_json_load(completion.content[0].text)
+        if llm_response == {}:
                 continue
         else:
             return llm_response
@@ -117,7 +134,7 @@ class ModelManager:
             from sentence_transformers import SentenceTransformer
             return SentenceTransformer(name)
         elif source == 'anthropic':
-            from SpiderGen.config import anthropic_api_key
+            from config import anthropic_api_key
             import anthropic
             client = anthropic.Anthropic(api_key=anthropic_api_key)
             return client
