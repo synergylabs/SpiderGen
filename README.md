@@ -1,9 +1,10 @@
 # SpiderGen: Towards Procedure Generation for Carbon Life Cycle Assessments With Generative AI
 
 Read our full paper here: https://arxiv.org/abs/2511.10684
+
 Authors: Anupama Sitaraman, Bharathan Balaji, Yuvraj Agarwal
 
-** Abstract **
+### Abstract 
 Investigating the effects of climate change and global warm-
 ing caused by GHG emissions have been a key concern
 worldwide. These emissions are largely contributed to by the
@@ -35,6 +36,7 @@ costs for estimating carbon impact, as it is able to produce
 LCA process information for less than $1 USD in under 10
 minutes as compared to the status quo LCA, which can cost
 over $25000 USD and take up to 21-person days.
+
 
 ## Source Code Details
 This source code contains the following:
@@ -84,6 +86,13 @@ These models are then handled by ModelManager (in the utils folder) to handle bo
 
 ### Getting Ground-Truth Data for Evaluation 
 Our ground-truth evaluation relies on data from EPD International's PCR Library (https://www.environdec.com/pcr-library). To access these PCRs, you must make an account. We then downloaded every document and determined which would be suitable as evaluation data points based on how complete the information was in each document (i.e, not including any documents that were simply supplementary and did not contain a PCR PFG on its own). For the list of PCRs that we utilized, refer to the technical appendix in our paper. 
+
+### Referencing SpiderGen
+If you utilize our code, please cite us using the following bibtex entry
+
+```
+@article{Sitaraman_2026, title={SpiderGen: Towards Procedure Generation for Carbon Life Cycle Assessments With Generative AI}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, author={Sitaraman, Anupama and Balaji, Bharathan and Agarwal,Yuvraj}, year={2026}}
+```
 
 ***Evaluation Code: Coming soon!!***
 The **evaluation** folder contains the modules used to evaluate SpiderGen, including:
